@@ -38,9 +38,14 @@
          <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
       </license>
    </licenses>
-
+	<repositories>
+		<repository>
+			<id>public-jboss</id>
+			<name>jboss repo</name>
+			<url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+		</repository>
+	</repositories>
    <dependencies>
-
       <!-- Dependency on the EJB module so we can use it's services if needed -->
       <dependency>
          <groupId>br.edu.infnet</groupId>
@@ -108,6 +113,20 @@
 		<artifactId>jstl</artifactId>
 		<version>1.2</version>
 	</dependency>
+	<!-- Import the CDI API, we use provided scope as the API is included in 
+			JBoss WildFly -->
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+				<!-- https://mvnrepository.com/artifact/org.wildfly/wildfly-jms-client-bom -->
+		<dependency>
+			<groupId>org.wildfly</groupId>
+			<artifactId>wildfly-jms-client-bom</artifactId>
+			<version>18.0.1.Final</version>
+			<type>pom</type>
+		</dependency>
    </dependencies>
 
    <build>
